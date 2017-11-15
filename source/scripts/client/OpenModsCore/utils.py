@@ -5,13 +5,14 @@ import re
 import threading
 import urllib
 import urllib2
-from . import overrideMethod
 from PlayerEvents import g_playerEvents
 from constants import AUTH_REALM
 from functools import partial
+from . import overrideMethod
 
 MAX_CHAT_MESSAGE_LENGTH = 220
-__all__ = ['pickRandomPart', 'sendMessage', 'sendChatMessage', 'remDups', 'checkKeys', 'refreshCurrentVehicle', 'Analytics', 'Sound']
+__all__ = ['pickRandomPart', 'sendMessage', 'sendChatMessage', 'remDups', 'checkKeys', 'refreshCurrentVehicle', 'Analytics',
+           'Sound']
 
 
 def pickRandomPart(variantList, lastRandId, doNext=False):
