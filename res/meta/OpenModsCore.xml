@@ -1,0 +1,10 @@
+<root>
+	<!-- Techical MOD ID -->
+	<id>OpenModsCore</id>
+	<!-- Package version -->
+	<version>2.3.1</version>
+	<!-- Human readable name -->
+	<name>Open-source mods core</name>
+	<!-- Human readable description -->
+	<description>Shared code archive for World of Tanks mods.</description>
+</root>

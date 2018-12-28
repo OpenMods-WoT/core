@@ -1,0 +1,17 @@
+﻿{
+    "enabled": true,
+    "ext": ".wotmod",
+    "files": {
+        "meta.xml": "res/meta/OpenModsCore.xml",
+        "res/scripts/client/OpenModsCore/__init__.pyc": "build/scripts/client/OpenModsCore/__init__.pyc",
+        "res/scripts/client/OpenModsCore/config/__init__.pyc": "build/scripts/client/OpenModsCore/config/__init__.pyc",
+        "res/scripts/client/OpenModsCore/config/interfaces/Dummy.pyc": "build/scripts/client/OpenModsCore/config/interfaces/Dummy.pyc",
+        "res/scripts/client/OpenModsCore/config/interfaces/Simple.pyc": "build/scripts/client/OpenModsCore/config/interfaces/Simple.pyc",
+        "res/scripts/client/OpenModsCore/config/interfaces/__init__.pyc": "build/scripts/client/OpenModsCore/config/interfaces/__init__.pyc",
+        "res/scripts/client/OpenModsCore/config/json_reader.pyc": "build/scripts/client/OpenModsCore/config/json_reader.pyc",
+        "res/scripts/client/OpenModsCore/config/template_builders.pyc": "build/scripts/client/OpenModsCore/config/template_builders.pyc",
+        "res/scripts/client/OpenModsCore/config/utils.pyc": "build/scripts/client/OpenModsCore/config/utils.pyc",
+        "res/scripts/client/OpenModsCore/events.pyc": "build/scripts/client/OpenModsCore/events.pyc",
+        "res/scripts/client/OpenModsCore/utils.pyc": "build/scripts/client/OpenModsCore/utils.pyc"
+    }
+}
