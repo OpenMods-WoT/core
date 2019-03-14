@@ -11,7 +11,6 @@
         "res/scripts/client/OpenModsCore/config/json_reader.pyc": "build/scripts/client/OpenModsCore/config/json_reader.pyc",
         "res/scripts/client/OpenModsCore/config/template_builders.pyc": "build/scripts/client/OpenModsCore/config/template_builders.pyc",
         "res/scripts/client/OpenModsCore/config/utils.pyc": "build/scripts/client/OpenModsCore/config/utils.pyc",
-        "res/scripts/client/OpenModsCore/events.pyc": "build/scripts/client/OpenModsCore/events.pyc",
         "res/scripts/client/OpenModsCore/utils.pyc": "build/scripts/client/OpenModsCore/utils.pyc"
     }
 }
