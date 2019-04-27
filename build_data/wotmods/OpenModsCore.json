@@ -16,6 +16,9 @@
         "res/scripts/client/OpenModsCore/events/LobbyView.pyc": "build/scripts/client/OpenModsCore/events/LobbyView.pyc",
         "res/scripts/client/OpenModsCore/events/LoginView.pyc": "build/scripts/client/OpenModsCore/events/LoginView.pyc",
         "res/scripts/client/OpenModsCore/events/PlayerAvatar.pyc": "build/scripts/client/OpenModsCore/events/PlayerAvatar.pyc",
+        "res/scripts/client/OpenModsCore/gui/__init__.pyc": "build/scripts/client/OpenModsCore/gui/__init__.pyc",
+        "res/scripts/client/OpenModsCore/gui/api.pyc": "build/scripts/client/OpenModsCore/gui/api.pyc",
+        "res/scripts/client/OpenModsCore/gui/utils.pyc": "build/scripts/client/OpenModsCore/gui/utils.pyc",
         "res/scripts/client/OpenModsCore/utils.pyc": "build/scripts/client/OpenModsCore/utils.pyc"
     }
 }
