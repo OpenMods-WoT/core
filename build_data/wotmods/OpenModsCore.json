@@ -11,14 +11,14 @@
         "res/scripts/client/OpenModsCore/config/json_reader.pyc": "build/scripts/client/OpenModsCore/config/json_reader.pyc",
         "res/scripts/client/OpenModsCore/config/template_builders.pyc": "build/scripts/client/OpenModsCore/config/template_builders.pyc",
         "res/scripts/client/OpenModsCore/config/utils.pyc": "build/scripts/client/OpenModsCore/config/utils.pyc",
+        "res/scripts/client/OpenModsCore/delayed/__init__.pyc": "build/scripts/client/OpenModsCore/delayed/__init__.pyc",
+        "res/scripts/client/OpenModsCore/delayed/api.pyc": "build/scripts/client/OpenModsCore/delayed/api.pyc",
+        "res/scripts/client/OpenModsCore/delayed/utils.pyc": "build/scripts/client/OpenModsCore/delayed/utils.pyc",
         "res/scripts/client/OpenModsCore/events/__init__.pyc": "build/scripts/client/OpenModsCore/events/__init__.pyc",
         "res/scripts/client/OpenModsCore/events/game.pyc": "build/scripts/client/OpenModsCore/events/game.pyc",
         "res/scripts/client/OpenModsCore/events/LobbyView.pyc": "build/scripts/client/OpenModsCore/events/LobbyView.pyc",
         "res/scripts/client/OpenModsCore/events/LoginView.pyc": "build/scripts/client/OpenModsCore/events/LoginView.pyc",
         "res/scripts/client/OpenModsCore/events/PlayerAvatar.pyc": "build/scripts/client/OpenModsCore/events/PlayerAvatar.pyc",
-        "res/scripts/client/OpenModsCore/gui/__init__.pyc": "build/scripts/client/OpenModsCore/gui/__init__.pyc",
-        "res/scripts/client/OpenModsCore/gui/api.pyc": "build/scripts/client/OpenModsCore/gui/api.pyc",
-        "res/scripts/client/OpenModsCore/gui/utils.pyc": "build/scripts/client/OpenModsCore/gui/utils.pyc",
         "res/scripts/client/OpenModsCore/utils.pyc": "build/scripts/client/OpenModsCore/utils.pyc"
     }
 }
