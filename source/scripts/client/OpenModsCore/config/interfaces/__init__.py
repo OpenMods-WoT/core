@@ -1,5 +1,4 @@
 from .Dummy import *
 from .Simple import *
-from .PYmods import *
 
-__all__ = ['PYmodsConfigInterface']
+__all__ = ['SimpleConfigInterface', 'SimpleConfBlockInterface', 'ConfigNoInterface']
