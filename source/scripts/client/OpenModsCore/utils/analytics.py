@@ -54,7 +54,10 @@ class Analytics(object):
             requestsPool.append(dict(template, ec='session', ea='keep'))
         for params in requestsPool:
             self.lastTime = BigWorld.time()
-            urllib2.urlopen(url='https://www.google-analytics.com/collect?', data=urllib.urlencode(params)).read()
+            try:
+                urllib2.urlopen(url='https://www.google-analytics.com/collect?', data=urllib.urlencode(params)).read()
+            except IOError:  # URLError
+                pass
 
     def start(self, *_, **__):
         player = BigWorld.player()
@@ -72,6 +75,9 @@ class Analytics(object):
         if self.analytics_started:
             from helpers import getClientLanguage
             self.lang = str(getClientLanguage()).upper()
-            urllib2.urlopen(url='https://www.google-analytics.com/collect?',
-                            data=urllib.urlencode(dict(self.template(True), sc='end', ec='session', ea='end'))).read()
+            try:
+                urllib2.urlopen(url='https://www.google-analytics.com/collect?',
+                                data=urllib.urlencode(dict(self.template(True), sc='end', ec='session', ea='end'))).read()
+            except IOError:  # URLError
+                pass
             self.analytics_started = False
