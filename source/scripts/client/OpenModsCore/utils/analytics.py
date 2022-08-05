@@ -10,7 +10,7 @@ __all__ = ('Analytics',)
 
 class Analytics(object):
     def __init__(self, description, version, ID, confList=None):
-        from ..events import game
+        from .events import game
         self.mod_description = description
         self.mod_id_analytics = ID
         self.mod_version = version

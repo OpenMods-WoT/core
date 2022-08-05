@@ -1,8 +1,9 @@
-import Event
 import traceback
 from functools import partial
-from .. import loadJson, overrideMethod
-from ..config import smart_update
+
+import Event
+from OpenModsCore import loadJson, overrideMethod
+from OpenModsCore.config import smart_update
 
 __all__ = ['g_modsListApi']
 
