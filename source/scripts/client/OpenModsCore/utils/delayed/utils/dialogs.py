@@ -5,7 +5,7 @@ __all__ = ()
 
 
 @overrideMethod(_BlurManager, '_setLayerBlur')
-def _setLayerBlur(base, self, blur):
+def _setLayerBlur(base, self, blur, *args, **kwargs):
     if self._battle is None:
-        return base(self, blur)
+        return base(self, blur, *args, **kwargs)
     self._battle.blurBackgroundViews(blur.ownLayer, blur.blurAnimRepeatCount)

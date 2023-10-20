@@ -48,13 +48,13 @@ def try_import():
     HotkeyContextHandler.api = None
 
     @overrideMethod(ModsSettingsApiWindow, '__init__')
-    def new_init(base, self, ctx):
+    def new_init(base, self, ctx, *args, **kwargs):
         self.api = ctx
-        return base(self, ctx)
+        return base(self, ctx, *args, **kwargs)
 
     @overrideMethod(ContextMenuManager, 'requestOptions')
-    def new_requestOptions(base, self, handlerType, ctx):
-        base(self, handlerType, ctx)
+    def new_requestOptions(base, self, handlerType, ctx, *args, **kwargs):
+        base(self, handlerType, ctx, *args, **kwargs)
         if handlerType == 'modsSettingsHotkeyContextHandler':
             self._ContextMenuManager__currentHandler.api = SL.appLoader.getDefLobbyApp(
             ).containerManager.getViewByKey(ViewKey(VIEW_ALIAS)).api

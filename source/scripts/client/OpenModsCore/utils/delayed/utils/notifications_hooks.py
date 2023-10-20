@@ -8,9 +8,9 @@ __all__ = ()
 
 
 @overrideMethod(NotificationsCollection, 'addItem')
-def new_addItem(base, self, item):
+def new_addItem(base, self, item, *args, **kwargs):
     if 'temp_SM' not in item._vo['message']['message']:
-        return base(self, item)
+        return base(self, item, *args, **kwargs)
     item._vo['message']['message'] = item._vo['message']['message'].replace('temp_SM', '')
     item._vo['notify'] = False
     if item._settings:
@@ -19,9 +19,9 @@ def new_addItem(base, self, item):
 
 
 @overrideMethod(NotificationsActionsHandlers, 'handleAction')
-def new_handleAction(base, self, model, typeID, entityID, actionName):
+def new_handleAction(base, self, model, typeID, entityID, actionName, *args, **kwargs):
     from notification.settings import NOTIFICATION_TYPE
     if typeID == NOTIFICATION_TYPE.MESSAGE and re.match('https?://', actionName, re.I):
         BigWorld.wg_openWebBrowser(actionName)
     else:
-        base(self, model, typeID, entityID, actionName)
+        base(self, model, typeID, entityID, actionName, *args, **kwargs)

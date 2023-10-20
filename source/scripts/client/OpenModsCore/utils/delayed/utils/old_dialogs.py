@@ -43,15 +43,15 @@ class _RestartButtons(_ConfirmButtons):
 
 
 @overrideMethod(SimpleDialog, '__callHandler')
-def new_callHandler(base, self, buttonID):
+def new_callHandler(base, self, buttonID, *args, **kwargs):
     if len(self._SimpleDialog__buttons) != 3:
-        return base(self, buttonID)
+        return base(self, buttonID, *args, **kwargs)
     self._SimpleDialog__handler(buttonID)
     self._SimpleDialog__isProcessed = True
 
 
 @overrideMethod(SimpleDialog, '_dispose')
-def new_Dialog_dispose(base, self):
+def new_Dialog_dispose(base, self, *args, **kwargs):
     if len(self._SimpleDialog__buttons) == 3:
         self._SimpleDialog__isProcessed = True  # don't call the handler upon window destruction, onWindowClose is fine
-    return base(self)
+    return base(self, *args, **kwargs)
