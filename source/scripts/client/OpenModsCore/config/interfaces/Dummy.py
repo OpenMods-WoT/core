@@ -92,7 +92,7 @@ class DummyConfigInterface(object):
         """
         if self.MSAInstance is None:
             return
-        self.MSAInstance.config['templates'][self.ID] = self.template
+        self.MSAInstance.state['templates'][self.ID] = self.template
         self.MSAInstance.updateModSettings(self.ID, self.getData())
 
     def onMSAPopulate(self):
@@ -160,7 +160,7 @@ class DummyConfBlockInterface(DummyConfigInterface):
             return
         templates = self.template  # saves calls
         for blockID in self.blockIDs:
-            self.MSAInstance.config['templates'][self.ID + blockID] = templates[blockID]
+            self.MSAInstance.state['templates'][self.ID + blockID] = templates[blockID]
             self.MSAInstance.updateModSettings(self.ID + blockID, self.getData(blockID))
 
     def onButtonPress(self, vName, value, blockID=None):

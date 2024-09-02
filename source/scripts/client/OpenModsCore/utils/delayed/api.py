@@ -24,6 +24,10 @@ def try_import():
                 return NotImplemented
 
             @staticmethod
+            def removeModification(*_, **__):
+                return NotImplemented
+
+            @staticmethod
             def alertModification(*_, **__):
                 return NotImplemented
 
@@ -35,17 +39,20 @@ def try_import():
         return modsListApi, None, None
     try:
         from gui.modsSettingsApi.api import ModsSettingsApi as _MSA_Orig
-        from gui.modsSettingsApi.hotkeys import HotkeysContoller
-        from gui.modsSettingsApi.view import loadView, ModsSettingsApiWindow, HotkeyContextHandler
-        from gui.modsSettingsApi._constants import MOD_ICON, MOD_NAME, MOD_DESCRIPTION, STATE_TOOLTIP, VIEW_ALIAS
+        from gui.modsSettingsApi.context_menu import HotkeyContextMenuHandler
+        from gui.modsSettingsApi.hotkeys import HotkeysController
+        from gui.modsSettingsApi.l10n import l10n
+        from gui.modsSettingsApi.view import loadView, ModsSettingsApiWindow
+        from gui.modsSettingsApi._constants import VIEW_ALIAS, HOTKEY_CONTEXT_MENU_HANDLER_ALIAS
         from gui.Scaleform.framework.managers.context_menu import ContextMenuManager
         from gui.shared.personality import ServicesLocator as SL
+        from gui.shared.utils.functions import makeTooltip
         from gui.Scaleform.framework.entities.View import ViewKey
     except ImportError as e:
         print 'OpenModsCore: ModsSettingsApi package not loaded:', e
         return modsListApi, None, None
     ModsSettingsApiWindow.api = None
-    HotkeyContextHandler.api = None
+    HotkeyContextMenuHandler.api = None
 
     @overrideMethod(ModsSettingsApiWindow, '__init__')
     def new_init(base, self, ctx, *args, **kwargs):
@@ -55,7 +62,7 @@ def try_import():
     @overrideMethod(ContextMenuManager, 'requestOptions')
     def new_requestOptions(base, self, handlerType, ctx, *args, **kwargs):
         base(self, handlerType, ctx, *args, **kwargs)
-        if handlerType == 'modsSettingsHotkeyContextHandler':
+        if handlerType == HOTKEY_CONTEXT_MENU_HANDLER_ALIAS:
             self._ContextMenuManager__currentHandler.api = SL.appLoader.getDefLobbyApp(
             ).containerManager.getViewByKey(ViewKey(VIEW_ALIAS)).api
 
@@ -66,26 +73,25 @@ def try_import():
             self.lang = langID
             self.isMSAWindowOpen = False
             self.activeMods = set()
-            self.config = {'templates': {}, 'settings': {}}
+            self.state = {'templates': {}, 'settings': {}}
             self.settingsListeners = {}
             self.buttonListeners = {}
+            self.hotkeys = HotkeysController(self)
+            self.onWindowOpened = Event.Event()
+            self.onWindowClosed = Event.Event()
+            self.onHotkeysUpdated = Event.Event()
             self.onSettingsChanged = Event.Event()
             self.onButtonClicked = Event.Event()
-            self.onWindowClosed = Event.Event()
-            self.updateHotKeys = Event.Event()
-            self.onWindowOpened = Event.Event()
-            self.hotkeys = HotkeysContoller(self)
-            self.hotkeys.onUpdated += self.updateHotKeys
             self.userSettings = {
-                'modsListApiName': MOD_NAME,
-                'modsListApiDescription': MOD_DESCRIPTION,
+                'modsListApiName': l10n('name'),
+                'modsListApiDescription': l10n('description'),
                 'modsListApiIcon': '../mods/configs/%s/%s/icon.png' % (self.modsGroup, self.ID),
-                'windowTitle': MOD_NAME,
-                'enableButtonTooltip': STATE_TOOLTIP,
+                'windowTitle': l10n('name'),
+                'enableButtonTooltip': makeTooltip(l10n('stateswitcher/tooltip/header'), l10n('stateswitcher/tooltip/body')),
             }
             smart_update(self.userSettings, i18n)
-            self.settingsLoad()
-            self.configLoad()
+            self.loadSettings()
+            self.loadState()
             modsListApi.addModification(
                 id=ID,
                 name=self.userSettings['modsListApiName'],
@@ -112,14 +118,14 @@ def try_import():
         def MSAButton(self, alias, *a, **kw):
             self.buttonListeners[alias](*a, **kw)
 
-        def settingsLoad(self):
+        def loadSettings(self):
             smart_update(self.userSettings, loadJson(
                 self.ID, self.lang, self.userSettings, 'mods/configs/%s/%s/i18n/' % (self.modsGroup, self.ID)))
 
-        def configLoad(self):
+        def loadState(self):
             pass
 
-        def configSave(self):
+        def saveState(self):
             pass
 
         def setModTemplate(self, linkage, template, callback, buttonHandler):
