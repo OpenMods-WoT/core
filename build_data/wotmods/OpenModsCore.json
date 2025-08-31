@@ -16,7 +16,6 @@
         "res/scripts/client/OpenModsCore/utils/delayed/utils/__init__.pyc": "build/scripts/client/OpenModsCore/utils/delayed/utils/__init__.pyc",
         "res/scripts/client/OpenModsCore/utils/delayed/utils/notifications_hooks.pyc": "build/scripts/client/OpenModsCore/utils/delayed/utils/notifications_hooks.pyc",
         "res/scripts/client/OpenModsCore/utils/delayed/utils/old_dialogs.pyc": "build/scripts/client/OpenModsCore/utils/delayed/utils/old_dialogs.pyc",
-        "res/scripts/client/OpenModsCore/utils/delayed/utils/dialogs.pyc": "build/scripts/client/OpenModsCore/utils/delayed/utils/dialogs.pyc",
         "res/scripts/client/OpenModsCore/utils/events/__init__.pyc": "build/scripts/client/OpenModsCore/utils/events/__init__.pyc",
         "res/scripts/client/OpenModsCore/utils/events/game.pyc": "build/scripts/client/OpenModsCore/utils/events/game.pyc",
         "res/scripts/client/OpenModsCore/utils/events/LobbyView.pyc": "build/scripts/client/OpenModsCore/utils/events/LobbyView.pyc",
